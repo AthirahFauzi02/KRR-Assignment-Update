@@ -1,0 +1,14 @@
+WindowManager:
+    ProgressScreen:
+<ProgressScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        ProgressBar:
+            id: progress_bar
+            size_hint: 1, 0.8
+            max: 100
+            value: 0
+        Button:
+            text: "Close"
+            size_hint: 1, 0.2
+            on_release: root.dismiss()

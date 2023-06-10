@@ -1,0 +1,2619 @@
+WindowManager:
+    FirstWindow : 
+    SecondWindow : 
+    ThirdWindow:
+    Unqualified:
+    Question1:
+    Question2:
+    Question3:
+    Question4:
+    Question5:
+    Question6:
+    Question7:
+    Question8:
+    Question9:
+    Question10:
+    ResultScreen:
+    ProgressScreen:
+    SEScreen1:
+    SEScreen2:
+    SEScreen3:
+    SEScreen4:
+    AIScreen1:
+    AIScreen2:
+    AIScreen3:
+    AIScreen4:
+    CSNScreen1:
+    CSNScreen2:
+    CSNScreen3:
+    CSNScreen4:
+    MMScreen1:
+    MMScreen2:
+    MMScreen3:
+    MMScreen4:
+    ISScreen1:
+    ISScreen2:
+    ISScreen3:
+    ISScreen4:
+    UndecidedScreen:
+    Unqualified:
+
+
+
+<FirstWindow>:
+    name:"first"
+
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[20,]
+    BoxLayout:
+        size_hint:0.6,0.6
+        pos_hint:{'center_x':0.30, 'center_y':0.7}
+
+        Image: 
+            source:"fsktm-logo.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:'SPECIALIZATION'
+        font_size:60
+        font_name : 'Kollektif-Bold.ttf'
+        color : 0.953, 0.753, 0.075, 1
+        halign : "right"
+        pos_hint: {'center_x': 0.4, 'center_y':0.43}
+        
+    Label:
+        text:'RECOMMENDATION'
+        font_size:75
+        font_name : 'Kollektif-Bold.ttf'
+        color:0.251, 0.098, 0.561, 1
+        halign : "right"
+        pos_hint:{'center_x': 0.35, 'center_y':0.35}
+    Label:
+        text:'First time here?'
+        font_size:43
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x':0.75, 'center_y': 0.6}
+    Label:
+        text:'Input your name'
+        font_size:25
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x':0.75,'center_y':0.55}
+
+    BoxLayout:
+        size_hint:0.13,0.05
+        pos_hint:{'center_x':0.75, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:0.698, 0.737, 0.898, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[20,]
+        TextInput:
+            id:user_name
+            hint_text:'Your name...'
+            hint_color : 1,1,1,1
+            font_size:21
+            background_color:0,0,0,0
+            background_normal:''
+            multiline:False
+    
+    Button:
+        text:'Click here to start'
+        size_hint:0.23, 0.07
+        pos_hint: {'center_x': 0.75, 'center_y':0.4}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        disabled: True if user_name.text == "" else False
+        on_release:root.click_here_button()
+        
+
+<SecondWindow>:
+    name: "second"
+    
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        id: greeting_label
+        text: ""
+        font_name :'Kollektif.ttf'
+        font_size:65
+        color : 0.451, 0.533, 0.867, 1
+        pos_hint: {'center_x': 0.5, 'center_y':0.85}
+
+    Label:
+        text: "Let have a quick introduction of FSKTM courses !"
+        font_size:40
+        color : 0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.50, 'center_y':0.75}
+
+    Label:
+        text: "In FSKTM, we have these course:"
+        font_size:40
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.50, 'center_y':0.7}
+
+    Button:
+        id:Multimedia
+        size_hint : 0.15,0.25
+        pos_hint: {'center_x': 0.10, 'center_y':0.4}
+        background_color: 0,0,0,0
+        on_press: root.open_website('Multimedia')
+
+        canvas.before:
+            Color:
+                rgba:0.365, 0.639, 0.216, 0.4
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+        Image: 
+            source: "Multimedia.png"
+            size: self.parent.width * 0.8, self.parent.height * 0.8
+            center: self.parent.center
+
+    Label:
+        text:"Multimedia \nComputing"
+        font_size:25
+        color: 0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.10, 'center_y':0.23}
+
+
+    Button:
+        id:Networking
+        size_hint : 0.15,0.25
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+        background_color: 0,0,0,0
+        on_press: root.open_website('Networking')
+
+        canvas.before:
+            Color:
+                rgba:0.651, 0.651, 0.651, 0.4
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+        Image: 
+            source: "Networking.png"
+            size: self.parent.width * 0.8, self.parent.height * 0.8
+            center: self.parent.center
+
+    Label:
+        text:"Computer System \nand Networking"
+        font_size:25
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.30, 'center_y':0.23}
+
+    Button:
+        id:AI
+        size_hint : 0.15,0.25
+        pos_hint: {'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        on_press: root.open_website('AI')
+
+        canvas.before:
+            Color:
+                rgba:1, 0.596, 0.557, 0.4
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+        Image: 
+            source: "AI.png"
+            size: self.parent.width * 0.8, self.parent.height * 0.8
+            center: self.parent.center
+    Label:
+        text:"Artificial \nIntelligence"
+        font_size:25
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.50, 'center_y':0.23}
+
+    
+    Button:
+        id:IS
+        size_hint : 0.15,0.25
+        pos_hint: {'center_x': 0.7, 'center_y':0.4}
+        background_color: 0,0,0,0
+        on_press: root.open_website('IS')
+
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 0.4
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+        Image: 
+            source: "Information System.png"
+            size: self.parent.width * 0.8, self.parent.height * 0.8
+            center: self.parent.center
+    Label:
+        text:"Information \nSystem"
+        font_size:25
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.70, 'center_y':0.23}
+
+    
+    Button:
+        id:SE
+        size_hint : 0.15,0.25
+        pos_hint: {'center_x': 0.9, 'center_y':0.4}
+        background_color: 0,0,0,0
+        on_press: root.open_website('SE')
+
+        canvas.before:
+            Color:
+                rgba:0.953, 0.753, 0.075, 0.4
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+        Image: 
+            source: "Software Engineer.png"
+            size: self.parent.width * 0.8, self.parent.height * 0.8
+            center: self.parent.center
+    Label:
+        text:"Software \nEngineering"
+        font_size:25
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.90, 'center_y':0.23}
+
+    
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint: {'center_x': 0.95, 'center_y':0.1}
+        on_press: root.manager.current = "third"
+        background_color:0,0,0,0
+        Image:
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+
+    
+<ThirdWindow>:
+    name: "third"
+    
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[20,]
+    Label:
+        text: "Before we dive deeper, please answer below question"
+        font_size:40
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.50, 'center_y':0.83}
+
+    Label:
+        text: "Did you take this subject during your previous study?"
+        font_size:35
+        color:0.251, 0.098, 0.561, 1
+        pos_hint: {'center_x': 0.50, 'center_y':0.76}
+    
+    Label:
+        text: "If yes, click yes"
+        font_size:35
+        color:0, 0.592, 0.698, 1 
+        pos_hint: {'center_x': 0.50, 'center_y':0.7}
+    
+    Label:
+        text: "If no, click no"
+        font_size:35
+        color:1, 0.596, 0.557, 1
+        pos_hint: {'center_x': 0.50, 'center_y':0.66}
+    
+    BoxLayout:
+        size_hint:0.25,0.05
+        pos_hint:{'center_x':0.3, 'center_y':0.6}
+
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[15,]
+        Label:
+            text: "STPM / Matriculation / Foundation"
+            font_size:30
+            pos:self.pos
+
+    Label:
+        text:"Mathematics AND \nPhysics/ Engineering Physics/ \nComputer Science/ Computing AND \nChemistry/ Engineering Chemistry/ \nBiology"
+        font_size:30
+        halign:"left"
+        color:0.451, 0.533, 0.867, 1
+        pos_hint: {'center_x': 0.3, 'center_y':0.47}
+
+
+    BoxLayout:
+        size_hint:0.2,0.05
+        pos_hint:{'center_x':0.7, 'center_y':0.6}
+
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[15,]
+        Label:
+            text: "Diploma"
+            font_size:30
+            pos:self.pos
+
+    Label:
+        text:"Mathematics"
+        font_size:30
+        halign:"right"
+        color:0.451, 0.533, 0.867, 1
+        pos_hint: {'center_x': 0.65, 'center_y':0.54}
+
+    
+    Button:
+        text:'Yes'
+        size_hint: 0.1,0.07
+        color: 0, 0, 0, 1 
+        pos_hint:{'center_x': 0.43, 'center_y':0.25}
+        background_color: 0,0,0,0
+        background_normal:''
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.manager.current = 'q1'
+    
+    Button:
+        text:'No'
+        size_hint: 0.1,0.07
+        color: 0, 0, 0, 1 
+        pos_hint:{'center_x': 0.58, 'center_y':0.25}
+        background_color: 0,0,0,0
+        background_normal:''
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.manager.current = 'Unqualified'
+
+
+<Question1>:
+    name: "q1"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+
+    Label:
+        text: "Do you love mathematic and have a strong \nunderstanding in mathematical concepts?"
+        font_size: 35
+        color: 115,136,221,1
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+    Button:
+        text:'Yes'
+        size_hint: 0.1,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.43, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes', "q2")
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+            
+    Button:
+        text:'No'
+        size_hint: 0.1,0.07
+        font_size : 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.58, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release: root.add_answer('No',"q2")
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+<Question2>:
+    name: "q2"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Do you consider yourself as a ...."
+        font_size: 30
+        color: 115,136,221,1
+        pos_hint: {'center_x': 0.5, 'center_y':0.75}
+
+    Button:
+        text:'Creative person'
+        size_hint: 0.3,0.07
+        font_size:20
+        color:0,0,0,1
+        pos_hint:{'center_x': 0.3, 'center_y':0.6}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Creative person', "q3")   
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Logical thinker'
+        size_hint: 0.3,0.07
+        color:0,0,0,1
+        font_size:20
+        pos_hint:{'center_x': 0.3, 'center_y':0.47}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release: root.add_answer('Logical thinker',"q3")
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Problem solver'
+        size_hint: 0.3,0.07
+        color: 0,0,0,1
+        font_size:20
+        pos_hint:{'center_x': 0.7, 'center_y':0.6}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release: root.add_answer('Problem solver',"q3")
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Detail oriented person'
+        size_hint: 0.3,0.07
+        font_size:20
+        color:0,0,0,1
+        pos_hint:{'center_x': 0.7, 'center_y':0.47}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release: root.add_answer('Detail oriented person',"q3")
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Analytical thinker'
+        size_hint: 0.3,0.07
+        font_size:20
+        color:0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.34}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release: root.add_answer('Analytical thinker',"q3")
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+<Question3>:
+    name: "q3"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Do you love coding?"
+        font_size: 35
+        color:115,136,221,1
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+    Button:
+        text:'Yes'
+        size_hint: 0.1,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.43, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes','q4')
+        canvas.before:
+            Color:
+                rgba:0.110, 0.706, 0.663, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+    Button:
+        text:'No'
+        size_hint: 0.1,0.07
+        font_size : 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.58, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('No','q4')
+        canvas.before:
+            Color:
+                rgba:0.110, 0.706, 0.663, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+<Question4>:
+    name:"q4"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+
+    Label:
+        text: "Would you prefer to learn various programming language?"
+        color:115,136,221,1
+        font_size: 35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+    Button:
+        text:'Yes, I would love to!'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.3, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes, I would love to!','q5')
+        canvas.before:
+            Color:
+                rgba:0.698, 0.737, 0.898, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'No, I would rather focus on one language'
+        size_hint: 0.25,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.7, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('No, I would rather focus on one language','q5')
+        canvas.before:
+            Color:
+                rgba:0.698, 0.737, 0.898, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+            
+
+<Question5>:
+    name:"q5"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "How do you feel about working in groups?"
+        color:115,136,221,1
+        font_size:35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+
+    Button:
+        text:'I love working in groups'
+        size_hint: 0.25,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.2, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('I love working in groups','q6')
+        canvas.before:
+            Color:
+                rgba:0.933, 0.761, 0.710, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+            
+    Button:
+        text:'I prefer to work by myself most of the time'
+        size_hint: 0.25,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('I prefer to work by myself most of the time','q6')
+        canvas.before:
+            Color:
+                rgba:0.933, 0.761, 0.710, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    
+    Button:
+        text:'I can adapt to any situation'
+        size_hint: 0.25,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.8, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('I can adapt to any situation','q6')
+        canvas.before:
+            Color:
+                rgba:0.933, 0.761, 0.710, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+<Question6>:
+    name:"q6"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Would you like to collect and review business data to improve performance?"
+        color:115,136,221,1
+        font_size: 35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+
+    Button:
+        text:'Yes, definitely'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.2, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes, definitely','q7')
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+    Button:
+        text:"Hmmm, I'm not sure"
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer("Hmmm, I'm not sure",'q7')
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Nah, no way'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.8, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Nah, no way','q7')
+        canvas.before:
+            Color:
+                rgba:0.439, 0.651, 0.965, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+
+
+<Question7>:
+    name:"q7"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Would you like to develop and code websites, software, and mobile apps?"
+        color:115,136,221,1
+        font_size:35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+
+    Button:
+        text:'Yes, definitely'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.2, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes, definitely','q8')
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+    Button:
+        text:"Hmmm, I'm not sure"
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer("Hmmm, I'm not sure",'q8')
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Nah, no way'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.8, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Nah, no way','q8')
+        canvas.before:
+            Color:
+                rgba:0.765, 0.875, 0.824, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+
+<Question8>:
+    name:"q8"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Would you like to hack computer networks to identify vulnerabilities?"
+        color:115,136,221,1
+        font_size:35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+
+    Button:
+        text:'Yes, definitely'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.2, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes, definitely','q9')
+        canvas.before:
+            Color:
+                rgba:0.110, 0.706, 0.663, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:"Hmmm, I'm not sure"
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer("Hmmm, I'm not sure",'q9')
+        canvas.before:
+            Color:
+                rgba:0.110, 0.706, 0.663, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Nah, no way'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.8, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Nah, no way','q9')
+        canvas.before:
+            Color:
+                rgba:0.110, 0.706, 0.663, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+<Question9>:
+    name:"q9"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Would you like to works with large data and explore various domain such as \ncomputer vision, natural language processing, deep learning, autonomous products and many more?"
+        halign : 'center'
+        color:115,136,221,1
+        font_size:35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+
+    Button:
+        text:'Yes, definitely'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.2, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes, definitely','q10')
+        canvas.before:
+            Color:
+                rgba:0.698, 0.737, 0.898, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+    Button:
+        text:"Hmmm, I'm not sure"
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer("Hmmm, I'm not sure",'q10')
+        canvas.before:
+            Color:
+                rgba:0.698, 0.737, 0.898, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Nah, no way'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.8, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Nah, no way','q10')
+        canvas.before:
+            Color:
+                rgba:0.698, 0.737, 0.898, 1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+<Question10>:
+    name:"q10"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+        
+    BoxLayout:
+        size_hint:0.93 , 0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[40,]
+    Label:
+        text: "Would you like to design a graphic or animation and develop games?"
+        color:115,136,221,1
+        font_size:35
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+    Button:
+        text:'Yes, definitely'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.2, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Yes, definitely','progress_screen')
+        canvas.before:
+            Color:
+                rgba:0.933, 0.761, 0.710, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+
+    Button:
+        text:"Hmmm, I'm not sure"
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.5, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer("Hmmm, I'm not sure",'progress_screen')
+        canvas.before:
+            Color:
+                rgba:0.933, 0.761, 0.710, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+    Button:
+        text:'Nah, no way'
+        size_hint: 0.2,0.07
+        font_size: 20
+        color : 0,0,0,1
+        pos_hint:{'center_x': 0.8, 'center_y':0.4}
+        background_color: 0,0,0,0
+        background_normal:''
+        on_release:root.add_answer('Nah, no way','progress_screen')
+        canvas.before:
+            Color:
+                rgba:0.933, 0.761, 0.710, 1 
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]  
+
+<ResultScreen>:
+    name: "result"
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Results'
+        Button:
+            text: 'Print Answers'
+            on_release: app.print_answers()
+
+
+<ProgressScreen>:
+    name:"progress_screen"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+    ProgressBar:
+        id: progress
+        max:100
+        value: root.progress_value
+        size_hint_x: 1  # Set the progress bar width to 80% of the parent width
+        size_hint_y: None
+        height: '70dp'
+        bar_color:0.251, 0.098, 0.561, 1
+
+    Label : 
+        text:"Please wait while we process your data"
+        color:115,136,221,1
+        font_size:40
+        pos_hint: {'center_x': 0.5, 'center_y':0.75}
+    Image:
+        source:"emoji.gif"
+        allow_stretch: True
+        keep_ratio:False
+        size_hint : 0.2,0.35
+        pos_hint: {'center_x': 0.5, 'center_y':0.5}
+
+    Label:
+        id: progress_label
+        text: f"{progress.value}% Progress"
+        color: 0.455, 0.228, 0.173, 1
+        font_size: '30sp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+
+<SEScreen1>:
+    name:"SEScreen1"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+    Label:
+        text:'You are suggested to pursue'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.8}
+    
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"se.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"se1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    Button:
+        text:'Click here to explore more about SE course in FSKTM'
+        color: 0,0,0,1
+        size_hint:0.3, 0.07
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+        background_color: 0.7, 0.5, 1.0, 1.0
+        background_normal: ''
+        
+        canvas.before:
+            Color:
+                rgba:self.background_color
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [30, ]
+        on_release:root.manager.transition.direction = "left";root.SE_info_button()
+
+
+<SEScreen2>:
+    name: "SEScreen2"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Curriculum Structure'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.83}
+
+    Label:
+        text: 'Bachelor of Computer Science'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.79}
+
+    BoxLayout:
+        size_hint:0.5,0.5
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"se.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.4,0.4
+        pos_hint:{'center_x':0.30, 'center_y':0.3}
+
+        Image: 
+            source:"fsktm-logo.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.9,0.9
+        pos_hint:{'center_x':0.78, 'center_y':0.53}
+
+        Image: 
+            source:"SE2.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left"; root.manager.current = "SEScreen3"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right"; root.manager.current = "SEScreen1"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<SEScreen3>:
+    name:"SEScreen3"
+        
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Course Planning'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.95}
+
+    Label:
+        text: 'Bachelor of Computer Science (SE)'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.90}    
+    
+    BoxLayout:
+        size_hint:0.8,0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.45}
+
+        Image: 
+            source:"SE3.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left"; root.manager.current = "SEScreen4"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right"; root.manager.current = "SEScreen2"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+
+<SEScreen4>:
+    name: "SEScreen4"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"se.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"se1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:'You might want to learn about SE before \nentering FSKTM UM. Check these out:'
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+
+    Button:
+        id:GFG
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.2, 'center_y':0.3}
+        background_color: 0,0,0,0
+        on_press: root.open_website('GFG')
+        Image:
+            source:"gfglogo.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+
+    Button:
+        id:w3
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.4, 'center_y':0.3}
+        background_color: 0,0,0,0
+        on_press: root.open_website('w3')
+        Image:
+            source:"W3logo.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+     
+    Button:
+        id:youtube
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.6, 'center_y':0.3}
+        background_color: 0,0,0,0
+        on_press: root.open_website('youtube')
+        Image:
+            source:"youtube.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        text:'Start Again'
+        size_hint:0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y':0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.start_again()
+
+<AIScreen1>:
+    name: "AIScreen1"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'You are suggested to pursue'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.8}
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"ai_text.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.6,0.6
+        pos_hint:{'center_x':0.80, 'center_y':0.55}
+
+        Image: 
+            source:"ai1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        text:'Click here to explore more about AI course in FSKTM'
+        color: 0,0,0,1
+        size_hint:0.3, 0.07
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+        background_color: 0.7, 0.5, 1.0, 1.0
+        background_normal: ''
+        
+        canvas.before:
+            Color:
+                rgba:self.background_color
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [30, ]
+        on_release:root.manager.transition.direction = "left";root.AI_info_button()
+
+<AIScreen2>:
+    name:"AIScreen2"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Curriculum Structure'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.83}
+
+    Label:
+        text: 'Bachelor of Computer Science'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.79}
+
+    BoxLayout:
+        size_hint:0.5,0.5
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"ai_text.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.4,0.4
+        pos_hint:{'center_x':0.30, 'center_y':0.3}
+
+        Image: 
+            source:"fsktm-logo.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.9,0.9
+        pos_hint:{'center_x':0.78, 'center_y':0.53}
+
+        Image: 
+            source:"AI2.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "AIScreen3"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right";root.manager.current = "AIScreen1"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y         
+
+<AIScreen3>:
+    name:"AIScreen3"
+
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Course Planning'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.95}
+
+    Label:
+        text: 'Bachelor of Computer Science (AI)'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.90}    
+
+    BoxLayout:
+        size_hint:0.9,0.9
+        pos_hint:{'center_x':0.5, 'center_y':0.45}
+
+        Image: 
+            source:"AI3.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press:root.manager.transition.direction = "left"; root.manager.current = "AIScreen4"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right";root.manager.current = "AIScreen2"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<AIScreen4>:
+    name: "AIScreen4"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"ai_text.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.6,0.6
+        pos_hint:{'center_x':0.80, 'center_y':0.55}
+
+        Image: 
+            source:"ai1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    Label:
+        text:'You might want to learn about AI before \nentering FSKTM UM. Check these out:'
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+
+    Button:
+        id:construct
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.2, 'center_y':0.3}
+        background_color: 0,0,0,0
+        on_press: root.open_website('construct')
+        Image:
+            source:"constructlogo.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+
+    Button:
+        id:coursera
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.4, 'center_y':0.3}
+        background_color: 0,0,0,0
+        on_press: root.open_website('coursera')
+        Image:
+            source:"coursera.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        text:'Start Again'
+        size_hint:0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y':0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.start_again()
+    
+<CSNScreen1>:
+    name:"CSNScreen1"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'You are suggested to pursue'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.8}
+    
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"csn.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"csn1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    Button:
+        text:'Click here to explore more about CSN course in FSKTM'
+        color: 0,0,0,1
+        size_hint:0.3, 0.07
+        pos_hint: {'center_x': 0.3, 'center_y':0.35}
+        background_color: 0.7, 0.5, 1.0, 1.0
+        background_normal: ''
+        
+        canvas.before:
+            Color:
+                rgba:self.background_color
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [30, ]
+        on_release:root.manager.transition.direction = "left";root.CSN_info_button()
+
+<CSNScreen2>:
+    name:"CSNScreen2"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Curriculum Structure'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.83}
+
+    Label:
+        text: 'Bachelor of Computer Science'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.79}
+
+    BoxLayout:
+        size_hint:0.5,0.5
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"csn.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.4,0.4
+        pos_hint:{'center_x':0.30, 'center_y':0.3}
+
+        Image: 
+            source:"fsktm-logo.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.9,0.9
+        pos_hint:{'center_x':0.78, 'center_y':0.53}
+
+        Image: 
+            source:"CSN2.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "CSNScreen3"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press:root.manager.transition.direction = "right"; root.manager.current = "CSNScreen1"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<CSNScreen3>:
+    name:"CSNScreen3"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Course Planning'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.95}
+
+    Label:
+        text: 'Bachelor of Computer Science (CSN)'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.90} 
+    
+    BoxLayout:
+        size_hint:0.8,0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.45}
+
+        Image: 
+            source:"CSN3.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "CSNScreen4"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right";root.manager.current = "CSNScreen2"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<CSNScreen4>:
+    name:"CSNScreen4"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"csn.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"csn1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:'You might want to learn about CSN before \nentering FSKTM UM. Check these out:'
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.3, 'center_y':0.35}      
+
+    Button:
+        id:ibm
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.2, 'center_y':0.25}
+        background_color: 0,0,0,0
+        on_press: root.open_website('ibm')
+        Image:
+            source:"ibmlogo.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        id:GFGCSN
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.4, 'center_y':0.25}
+        background_color: 0,0,0,0
+        on_press: root.open_website('GFG')
+        Image:
+            source:"gfglogo.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        text:'Start Again'
+        size_hint:0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y':0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.start_again()
+
+
+<MMScreen1>:
+    name:"MMScreen1"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'You are suggested to pursue'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.8}
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+        Image: 
+            source:"MUltimedia computing.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"mul.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        text:'Click here to explore more about Multimedia Computing course in FSKTM'
+        color: 0,0,0,1
+        size_hint:0.3, 0.07
+        pos_hint: {'center_x': 0.3, 'center_y':0.35}
+        background_color: 0.7, 0.5, 1.0, 1.0
+        background_normal: ''
+        
+        canvas.before:
+            Color:
+                rgba:self.background_color
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [30, ]
+        on_release:root.manager.transition.direction = "left";root.MUL_info_button()
+
+<MMScreen2>:
+    name:"MMScreen2"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Curriculum Structure'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.83}
+
+    Label:
+        text: 'Bachelor of Computer Science'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.79}
+    
+    BoxLayout:
+        size_hint:0.5,0.5
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"MUltimedia computing.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.4,0.4
+        pos_hint:{'center_x':0.30, 'center_y':0.3}
+
+        Image: 
+            source:"fsktm-logo.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.9,0.9
+        pos_hint:{'center_x':0.78, 'center_y':0.53}
+
+        Image: 
+            source:"MUL2.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "MMScreen3"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press:root.manager.transition.direction = "right"; root.manager.current = "MMScreen1"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<MMScreen3>:
+    name:"MMScreen3"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Course Planning'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.95}
+
+    Label:
+        text: 'Bachelor of Computer Science (MULTIMEDIA COMPUTING)'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.90}    
+    
+    BoxLayout:
+        size_hint:0.8,0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.45}
+
+        Image: 
+            source:"MUL3.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "MMScreen4"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right";root.manager.current = "MMScreen2"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<MMScreen4>:
+    name:"MMScreen4"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"MUltimedia computing.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"mul.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    Label:
+        text:'You might want to learn about Multimedia Computing before \nentering FSKTM UM. Check these out:'
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+    
+    Button:
+        id:ss
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.2, 'center_y':0.35}
+        background_color: 0,0,0,0
+        on_press: root.open_website('ss')
+        Image:
+            source:"ss.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        id:tuto
+        size_hint : 0.3,0.2
+        pos_hint: {'center_x': 0.4, 'center_y':0.35}
+        background_color: 0,0,0,0
+        on_press: root.open_website('tuto')
+        Image:
+            source:"tuto.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        text:'Start Again'
+        size_hint:0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y':0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.start_again()
+    
+<ISScreen1>:
+    name:"ISScreen1"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'You are suggested to pursue'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.8}
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"is.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"is1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        text:'Click here to explore more about IS course in FSKTM'
+        color: 0,0,0,1
+        size_hint:0.3, 0.07
+        pos_hint: {'center_x': 0.3, 'center_y':0.35}
+        background_color: 0.7, 0.5, 1.0, 1.0
+        background_normal: ''
+        
+        canvas.before:
+            Color:
+                rgba:self.background_color
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [30, ]
+        on_release:root.manager.transition.direction = "left";root.IS_info_button()
+
+
+<ISScreen2>:
+    name:"ISScreen2"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Curriculum Structure'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.83}
+
+    Label:
+        text: 'Bachelor of Computer Science'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.79}
+
+    BoxLayout:
+        size_hint:0.5,0.5
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"is.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    BoxLayout:
+        size_hint:0.4,0.4
+        pos_hint:{'center_x':0.30, 'center_y':0.3}
+
+        Image: 
+            source:"fsktm-logo.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.9,0.9
+        pos_hint:{'center_x':0.78, 'center_y':0.53}
+
+        Image: 
+            source:"IS2.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "ISScreen3"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right";root.manager.current = "ISScreen1"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<ISScreen3>:
+    name:"ISScreen3"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:'Course Planning'        
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.95}
+
+    Label:
+        text: 'Bachelor of Computer Science (IS)'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.50, 'center_y':0.90}   
+
+    BoxLayout:
+        size_hint:0.8,0.8
+        pos_hint:{'center_x':0.5, 'center_y':0.45}
+
+        Image: 
+            source:"IS3.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Button:
+        id:nextbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.95, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "left";root.manager.current = "ISScreen4"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_next.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            
+
+    Button:
+        id:backbutton
+        size_hint:0.1,0.1
+        pos_hint:{'center_x':0.05, 'center_y':0.1}
+        on_press: root.manager.transition.direction = "right";root.manager.current = "ISScreen2"
+        background_color:0,0,0,0
+        Image: 
+            source:"button_back.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+<ISScreen4>:
+    name:"ISScreen4"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+
+    BoxLayout:
+        size_hint:0.55,0.55
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"is.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.65,0.65
+        pos_hint:{'center_x':0.73, 'center_y':0.53}
+
+        Image: 
+            source:"is1.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    Label:
+        text:'You might want to learn about Information System before \nentering FSKTM UM. Check these out:'
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.3, 'center_y':0.4}
+
+    Button:
+        id:emeritus
+        size_hint : 0.4,0.2
+        pos_hint: {'center_x': 0.3, 'center_y':0.3}
+        background_color: 0,0,0,0
+        on_press: root.open_website('emeritus')
+        Image:
+            source:"emeritus.png"
+            center_x: self.parent.center_x
+            center_y:self.parent.center_y
+    
+    Button:
+        text:'Start Again'
+        size_hint:0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y':0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.start_again()
+
+<UndecidedScreen>:
+    name: "UndecidedScreen"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+
+    Label:
+        text:"Sorry, I am unable to decide which specialization suits you. \nDon't worry you can contact and talk to our academic advisor of FSKTM UM"
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.5, 'center_y':0.85}
+    
+    BoxLayout:
+        size_hint:0.2,0.2
+        pos_hint:{'center_x':0.11, 'center_y':0.6}
+
+        Image: 
+            source:"AI4.jpg"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:"[b]Artificial Intelligence\nDepartment[/b]\nDr. Erma Rahayu Mohd Faizal Abdullah\n+603 7967 6308\nerma@um.edu.my"
+        markup: True
+        halign: 'center'
+        font_size:20
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.11, 'center_y':0.42}
+
+
+    BoxLayout:
+        size_hint:0.2,0.2
+        pos_hint:{'center_x':0.30, 'center_y':0.6}
+
+        Image: 
+            source:"SE4.jpg"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:"[b]Software Engineering\nDepartment[/b]\nDr. Ong Sim Ying\n+603 7967 6435\nsimying.ong@um.edu.my"
+        markup: True
+        halign: 'center'
+        font_size:20
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.30, 'center_y':0.42}
+
+
+    BoxLayout:
+        size_hint:0.2,0.2
+        pos_hint:{'center_x':0.505, 'center_y':0.6}
+
+        Image: 
+            source:"CSN4.jpg"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:"[b]Computer System and\nNetworking Department[/b]\nAssociate Professor Ts.\nDr. Ismail Ahmedy\n+603 7967 6374\nismailahmedy@um.edu.my"
+        markup: True
+        halign: 'center'
+        font_size:20
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.505, 'center_y':0.41}
+
+    BoxLayout:
+        size_hint:0.2,0.2
+        pos_hint:{'center_x':0.71, 'center_y':0.6}
+
+        Image: 
+            source:"MUL4.jpg"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:"[b]Multimedia Computing\nDepartment[/b]\nDr. Nurul Fazmidar Mohd Noor\n+603 7967 6374\nfazmidar@um.edu.my"
+        markup: True
+        halign: 'center'
+        font_size:20
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.71, 'center_y':0.42}
+
+    
+    BoxLayout:
+        size_hint:0.2,0.2
+        pos_hint:{'center_x':0.9, 'center_y':0.6}
+
+        Image: 
+            source:"IS4.jpg"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    Label:
+        text:"[b]Information System\nDepartment[/b]\nAssociate Professor Dr. Norjihan\nAbdul Ghani\n+603 7967 6351\nnorjihan@um.edu.my"
+        markup: True
+        halign: 'center'
+        font_size:20
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.9, 'center_y':0.41}
+        
+    
+    Button:
+        id:qr
+        size_hint : 0.25,0.25
+        pos_hint: {'center_x': 0.35, 'center_y':0.2}
+        background_color: 0,0,0,0
+        on_press: root.open_website('qr')
+        Image:
+            source:"QR WEB.png"
+            size: self.parent.width * 0.8, self.parent.height * 0.8
+            center: self.parent.center
+
+    BoxLayout:
+        size_hint:0.5,0.5
+        pos_hint:{'center_x':0.55, 'center_y':0.20}
+
+        Image: 
+            source:"huhu.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    Button:
+        text:'Start Again'
+        size_hint:0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y':0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[30,]
+        on_release:root.start_again()
+        
+<Unqualified>:
+    name:"Unqualified"
+    Image:
+        source:"Background.png"
+        allow_stretch: True
+        keep_ratio:False
+    
+    Label:
+        text:"I am truly sorry, you are disqualified to enter\nFSKTM UM because those subjects are compulsory\nto take before you can apply for the courses in FSKTM UM\n\nBut don't worry, you can explore other courses in\nUniversity Malaya, just scan the QR Code below!"
+        markup: True
+        halign: 'center'
+        font_size:35
+        color : 0,0,0,1
+        pos_hint: {'center_x': 0.5, 'center_y':0.75}
+
+    BoxLayout:
+        size_hint:0.4,0.4
+        pos_hint:{'center_x':0.38, 'center_y':0.45}
+
+        Image: 
+            source:"img-logo-UM.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.3,0.3
+        pos_hint:{'center_x':0.7, 'center_y':0.45}
+
+        Image: 
+            source:"umlink.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+
+    BoxLayout:
+        size_hint:0.6,0.6
+        pos_hint:{'center_x':0.5, 'center_y':0.25}
+
+        Image: 
+            source:"stu.png"
+            allow_stretch:False
+            keep_ratio:True
+            size:self.size
+    
+    Button:
+        text: 'Start Again'
+        size_hint: 0.15, 0.05
+        pos_hint: {'center_x': 0.9, 'center_y': 0.2}
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1 
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [30, ]
+        on_press: root.manager.current = 'first'
